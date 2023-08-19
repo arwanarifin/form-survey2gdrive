@@ -1,0 +1,139 @@
+header,
+main,
+footer {
+  padding-left: 300px;
+  flex: 1 0 auto;
+}
+
+body {
+  /*display: flex;
+  /*min-height: 100vh;*/
+  flex-direction: column;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+.list-type1 {
+  width: 300px;
+  margin: 0 auto;
+}
+.list-type1 ol {
+  counter-reset: li;
+  list-style: none;
+  /* *list-style: decimal; */
+  /*font-family: 'Raleway', sans-serif;*/
+  padding: auto;
+  margin-bottom: 4em;
+}
+.list-type1 ol ol {
+  margin: 0 0 0 2em;
+}
+.list-type1 a {
+  position: relative;
+  display: block;
+  padding: 0.2em 0.2em 0.2em 1em;
+  /* *padding: 0.4em; */
+  margin: 0.5em 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-decoration: none;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 10em;
+  transition: all 0.2s ease-in-out;
+}
+
+.list-type1 a:hover {
+  background: #000;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+/* .leaflet-bar a {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  color: #444;
+  display: block;
+  height: 26px;
+  width: 26px;
+  line-height: 1.45 !important;
+  text-align: center;
+  text-decoration: none;
+  font: 12px "Lucida Console", Monaco, monospace;
+} */
+.modal {
+  min-height: 500px;
+}
+
+.judul {
+  text-align: center;
+  /* transform: translate(50%,-50%); */
+  /* text-transform: uppercase; */
+  font-family: calibri;
+  font-size: 40px;
+  font-weight: 700;
+  color: orange;
+  text-shadow: 1px 1px 1px #dfdada;
+}
+.labelku {
+  font-size: 6px;
+  font-weight: bold;
+  /* border: 1px solid #777; */
+  border-radius: 7px;
+  text-align: center;
+  color: #000;
+  background: #fff;
+  /* color: red; 
+			font-weight: bold;
+			background: transparent;
+			border:0;
+			box-shadow: none;
+			font-size:2em; */
+  /* background: rgba(255, 255, 255, 0);
+			border: 0;
+			border-radius: 0px;
+			box-shadow: 0 0px 0px;
+			color: white;
+			text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+				1px 1px 0 #000; */
+}
+.my-label {
+  background-color: transparent;
+  border: transparent;
+  box-shadow: none;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.circle-with-txt {
+  position: relative;
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+}
+.txt {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+}
+
+@media print {
+  .leaflet-control-container {
+    display: none !important;
+  }
+}

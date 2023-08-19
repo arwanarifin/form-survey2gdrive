@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Form Survei Rumah</title>
+    
+    <!-- <link rel="stylesheet" href="assets/bootstrap-3.3.7/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link
+      rel="stylesheet"
+      href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css"
+    />
+    <link rel="stylesheet" href="assets/select2-4.0.6-rc.1/dist/css/select2-materialize.css">
+    
+    <script src="assets/jquery/jquery-2.2.4.js"></script>
+    <!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+    
+    <!-- <script src="assets/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script> -->
+    
+    <script src="assets/select2-4.0.6-rc.1/dist/js/select2.min.js"></script>   
+    <script src="assets/select2-4.0.6-rc.1/dist/js/i18n/id.js"></script> 
+    
+    
+    <!-- <link rel="icon" sizes="196x196" href="assets/icon/logo_bnpb.png" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo_bnpb.png" /> -->
+    
+
+  </head>
+  <body>
+
+
+
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <!-- <div class="row center">
+          <img style="margin-bottom: 5px;width: 100px;" src="assets/icon/logo_bnpb.png">
+        </div> -->
+        <h1 class="judul center orange-text">Formulir Survei</h1>
+        <div class="row center">
+          <p>
+      <!-- <a href="#" target="_blank"><strong>Kerusakan Dampak Bencana</strong></a> -->
+      <p>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="section">
+
+        <!--   Main Form   -->
+        <div class="row">
+          <br>
+          
+          <form class="col s12" id="surveyrumah"
+            
+            <i>Isilah dengan informasi yang sesuai</i>
+            <br>
+            <br>
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="nama" type="text">
+                <label for="nama">Nama</label>
+              </div>
+            </div>
+            
+            
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="tanggal" type="text" class="datepicker">
+                <label for="tanggal">Tanggal Survei</label>
+              </div>
+            </div>
+            <div class="row" id="maprow">
+              <div class="row">
+                <div class="lokasi col s12">
+                  <i> <strong> Tentukan lokasi survei (pilih di peta) </strong></i>
+                </div>  
+              </div>
+              <div class="row">
+                <div class="lokasi col s12">
+                  <i id="geo" class="waves-effect waves-light btn"><i class="material-icons right">
+                  location_searching</i>aktifkan pencarian lokasi</i>
+                </div>
+              </div>
+              
+              
+              <div class="card">                
+                <div class="card-content">
+                  <div id="map"></div>
+                </div>
+              </div>
+
+            </div>
+            
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="[terisi otomatis]" id="latitude" type="text">
+                <!-- <span class="helper-text">Koordinat Lintang (otomatis)</span> -->
+                <label for="latitude">Koord. Lintang</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="[terisi otomatis]" id="longitude" type="text">
+                <!-- <span class="helper-text">Koordinat Bujur (otomatis)</span> -->
+                <label for="longitude">Koord. Bujur</label>
+              </div>
+            </div>
+
+
+            
+            <div class="row">
+              <label>Upload Foto</label>
+              <div class="file-field input-field">
+                  <div class = "btn">
+                     <span>Browse</span>
+                     <input type = "file" name="image">
+                  </div>
+                  
+                  <div class = "file-path-wrapper">
+                     <input class = "file-path validate"
+                        placeholder = "Pilih Foto" />
+                  </div>
+                
+              </div>
+            </div>
+            
+            
+          
+            <div class="row center">
+              <div class="col s12">
+                <button class="btn-large pulse waves-effect waves-light blue" type="submit">
+                  <i class="material-icons left">send</i>Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <p>Modal Header</p>
+
+
+        </div>
+      </div> 
+      <style>
+              .leaflet-popup-content-wrapper,
+              .leaflet-popup-tip {
+                background: white;
+                color: #333;
+                box-shadow: 0 3px 14px rgb(0 0 0 / 40%);
+              }
+
+              .leaflet-popup-content-wrapper {
+                padding: 0px;
+                text-align: left;
+                border-radius: 12px;
+              }
+      </style>
+
+      
+      <script src="assets/js/materialize.js"></script>
+      <script src="assets/js/init.js"></script>
+      <script src="assets/js/datepicker.js"></script>
+
+  </body>
+  
+    
+</html>
