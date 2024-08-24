@@ -81,7 +81,8 @@ var hasilsurvey = L.geoJson(null, {
   onEachFeature: function (feature, layer) {
     var urltext = feature.properties.link;
     var match = urltext.match(/[^/?]*[^/?]/g);
-    var newurl = "https://drive.google.com/uc?export=view&id=" + match[4];
+    var originalUrl = "https://drive.google.com/file/d/" + match[4] + "/view";
+    var newurl = "https://drive.google.com/thumbnail?sz=w1000&id=" + match[4];
     //console.log(text);
     //document.getElementById('foo').appendChild(makeUL(options[1]));
 
@@ -93,9 +94,9 @@ var hasilsurvey = L.geoJson(null, {
         "<tr><td>Tanggal</td><td>" +
         feature.properties.tanggal +
         "</td></tr>" +
-        "<tr><td>Foto</td><td> <img src =" +
+        "<tr><td>Foto</td><td> <a href='" + originalUrl + "' target='_blank'><img src='" +
         newurl +
-        " height='100' width='100'></td></tr>" +
+        "' height='100' width='100'></a></td></tr>" + 
         "</table>",
       {
         maxWidth: 380,
@@ -103,10 +104,22 @@ var hasilsurvey = L.geoJson(null, {
     );
   },
 });
-$.getJSON("data/get_geojson.php", function (data) {
-  hasilsurvey.addData(data);
-  hasilsurvey.addTo(map);
-});
+
+// URL to the Google Sheets CSV
+const googleSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRpjX3woM8-mPVKyqlRqUIozWyEWo4c8-37BE3bPVw6MBDQRoFo4xg4Ndo5xmUzlOCiF-ughPAuyxZq/pub?gid=0&single=true&output=csv';
+// Fetch the data, then add it to the map
+fetchAndConvertCsvToJson(googleSpreadsheetUrl)
+  .then(data => {
+    if (data && !data.error) {
+      hasilsurvey.addData(data); // Add the GeoJSON data to the Leaflet layer
+      hasilsurvey.addTo(map); // Add the layer to the map
+    } else {
+      console.error('Failed to load or parse CSV data.');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching or converting CSV data:', error);
+  });
 
 function _imageProperties(obj) {
   let count = 0;
